@@ -192,9 +192,8 @@ Fedora 28 （和更新版本）和 CentOS 7 用户可以使用更高效的 [IPse
 * [macOS VPN 流量](#macos-vpn-流量)
 * [iOS/Android 睡眠模式](#iosandroid-睡眠模式)
 * [Android 6 及以上版本](#android-6-及以上版本)
-* [Chromebook 连接问题](#chromebook-连接问题)
 * [其它错误](#其它错误)
-* [额外的步骤](#额外的步骤)
+
 
 ### Windows 错误 809
 
@@ -237,7 +236,6 @@ Fedora 28 （和更新版本）和 CentOS 7 用户可以使用更高效的 [IPse
 1. 单击 **确定** 关闭 **高级设置**。
 1. 单击 **确定** 保存 VPN 连接的详细信息。
 
-![Select CHAP in VPN connection properties](images/vpn-properties-zh.png)
 
 ### Windows 10 升级
 
@@ -263,14 +261,8 @@ Android 设备在进入睡眠模式不久后也会断开 Wi-Fi 连接，如果�
 
 如果你无法使用 Android 6 或以上版本连接：
 
-1. 单击 VPN 连接旁边的设置按钮，选择 "Show advanced options" 并且滚动到底部。如果选项 "Backward compatible mode" 存在（看下图），请启用它并重试连接。如果不存在，请尝试下一步。
-1. 编辑 VPN 服务器上的 `/etc/ipsec.conf`。找到 `sha2-truncbug=yes` 并将它替换为 `sha2-truncbug=no`。保存修改并运行 `service ipsec restart` (<a href="https://libreswan.org/wiki/FAQ#Configuration_Matters" target="_blank">参见</a>)
+单击 VPN 连接旁边的设置按钮，选择 "Show advanced options" 并且滚动到底部。如果选项 "Backward compatible mode" 存在（看下图），请启用它并重试连接。
 
-![Android VPN workaround](images/vpn-profile-Android.png)
-
-### Chromebook 连接问题
-
-Chromebook 用户： 如果你无法连接，请尝试以下步骤：编辑 VPN 服务器上的 `/etc/ipsec.conf`。找到这一行 `phase2alg=...` 并在结尾加上 `,aes_gcm-null` 。保存修改并运行 `service ipsec restart`。
 
 ### 其它错误
 
